@@ -6,7 +6,7 @@ var styles = require('./../styles/pechoStyle').settings;
 var navigationStyle = require('./../styles/pechoStyle').navigation;
 
 var BackButton = require('./../components/BackButton');
-var Search = require('./../components/icons/Search');
+var Search = require('./../components/Search');
 
 var {
     StyleSheet,

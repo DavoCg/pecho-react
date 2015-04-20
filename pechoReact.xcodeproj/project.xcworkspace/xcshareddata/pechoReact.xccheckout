@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0F43EB73-C0AD-4971-A0A3-28A710AC7E8E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>pechoReact</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B9EF9E67AE546F81D1DE3E02EFFFD12609F6B052</key>
+		<string>https://github.com/DavoCg/pecho-react.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>pechoReact.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B9EF9E67AE546F81D1DE3E02EFFFD12609F6B052</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DavoCg/pecho-react.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B9EF9E67AE546F81D1DE3E02EFFFD12609F6B052</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B9EF9E67AE546F81D1DE3E02EFFFD12609F6B052</string>
+			<key>IDESourceControlWCCName</key>
+			<string>pechoReact</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -31,6 +31,7 @@ var pechoReact = React.createClass({
                             selectedTab: 'home'
                         });
                     }}>
+
                     <Home/>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item

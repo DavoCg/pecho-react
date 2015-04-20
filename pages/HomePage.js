@@ -2,26 +2,77 @@
 
 var React = require('react-native');
 var Router = require('react-native-router');
+
+var BackButton = require('./../components/BackButton');
+var Search = require('./../components/Search');
+var Posts = require('./../components/Posts');
+
 var styles = require('./../styles/pechoStyle').home;
 var navigationStyle = require('./../styles/pechoStyle').navigation;
 
-var BackButton = require('./../components/BackButton');
-var Search = require('./../components/icons/Search');
+
+var posts = require('../posts');
 
 var {
     StyleSheet,
     View,
+    ListView,
     Text,
-    NavigatorIOS
+    NavigatorIOS,
+    Image
     } = React;
 
-var HomeInitial = React.createClass({
-    render: function render() {
+var Timeline = React.createClass({
+
+    getInitialState: function getInitialState(){
+        return {
+            dataSource: new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 !== row2
+            }),
+            loaded: false
+        };
+    },
+
+    componentDidMount: function componentDidMount(){
+        this.fetchData();
+    },
+
+    fetchData: function fetchData(){
+        this.setState({
+            dataSource: this.state.dataSource.cloneWithRows(posts),
+            loaded: true
+        });
+    },
+
+    renderPost: function renderPost(post){
+        /**
+         * Posts[post.type] can be enum: {text, video, image , multiImages}
+         */
+        var PostHeader = Posts.header;
+        var PostFooter = Posts.footer;
+        var RenderedPost = Posts[post.type];
+        return(
+            <View>
+                <View style={styles.post}>
+                    <PostHeader post={post}/>
+                    <RenderedPost post={post}/>
+                </View>
+                <PostFooter style={post.postFooter} post={post}/>
+            </View>
+
+        );
+
+    },
+
+    render: function render(){
         return (
-            <View style={styles.container}>
-                <Text style={styles.description}>
-                    Home Page
-                </Text>
+            <View style={styles.containerList}>
+                <ListView
+                    showsVerticalScrollIndicator={false}
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderPost}
+                    style={styles.listView}>
+                </ListView>
             </View>
         );
     }
@@ -31,12 +82,12 @@ var HomeInitial = React.createClass({
  * Home Navigator
  */
 var firstRoute = {
-    name: 'Home',
-    component: HomeInitial
+    name: 'Timeline',
+    component: Timeline
 };
 
 var Home = React.createClass({
-    render: function render() {
+    render: function render(){
         return (
             <Router
                 firstRoute={firstRoute}

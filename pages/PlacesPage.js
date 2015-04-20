@@ -2,11 +2,12 @@
 
 var React = require('react-native');
 var Router = require('react-native-router');
-var styles = require('./../styles/pechoStyle').places;
-var navigationStyle = require('./../styles/pechoStyle').navigation;
 
 var BackButton = require('./../components/BackButton');
-var Search = require('./../components/icons/Search');
+var Search = require('./../components/Search');
+
+var styles = require('./../styles/pechoStyle').places;
+var navigationStyle = require('./../styles/pechoStyle').navigation;
 
 var {
     StyleSheet,
@@ -94,6 +95,7 @@ var PlacesList = React.createClass({
         return (
             <View style={styles.containerList}>
                 <ListView
+                showsVerticalScrollIndicator={false}
                 dataSource={this.state.dataSource}
                 renderRow={this.renderPlace}
                 style={styles.listView}>
