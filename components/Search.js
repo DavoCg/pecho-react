@@ -23,7 +23,7 @@ var styles = StyleSheet.create({
     marginRight: 15
   },
   input: {
-    backgroundColor: '#5BB62D',
+    backgroundColor: '#00993E',
     height: 32,
     marginTop: 6,
     paddingLeft: 10,

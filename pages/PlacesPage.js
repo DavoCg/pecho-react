@@ -5,9 +5,13 @@ var Router = require('react-native-router');
 
 var BackButton = require('./../components/BackButton');
 var Search = require('./../components/Search');
+var Separator = require('./../components/Separator');
 
 var styles = require('./../styles/pechoStyle').places;
 var navigationStyle = require('./../styles/pechoStyle').navigation;
+
+var api = require('./../utils/api');
+console.log(api);
 
 var {
     StyleSheet,
@@ -18,10 +22,6 @@ var {
     NavigatorIOS,
     TouchableOpacity
 } = React;
-
-var api = {
-    REQUEST_URL : 'http://52.17.76.123:3000/places?lat=48.864616&lon=2.348069&distance=20000+&hashtags=clopes'
-};
 
 /**
  * Place details Component
@@ -56,8 +56,7 @@ var PlacesList = React.createClass({
     },
 
     fetchData: function fetchData() {
-        fetch(api.REQUEST_URL)
-            .then((response) => response.json())
+        api.getPlaces('48.864616', '2.348069', '20000', ['clopes'])
             .then((responseData) => {
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(responseData),
@@ -77,17 +76,19 @@ var PlacesList = React.createClass({
 
     renderPlace: function renderPlace(place){
         return(
-            <TouchableOpacity onPress={this._onPress.bind(this, place)}>
-            <View style={styles.placeRow}>
-                    <Image
-                        source={require('image!ios7-location-outline')}
-                        style={styles.thumbnail}>
-                    </Image>
-                    <View style={styles.placeInfos}>
-                        <Text style={styles.name}>{place.name}</Text>
-                    </View>
+            <View>
+                <TouchableOpacity onPress={this._onPress.bind(this, place)}>
+                <View style={styles.placeRow}>
+                        <Image
+                            source={require('image!ios7-location-outline')}
+                            style={styles.thumbnail}>
+                        </Image>
+                        <View style={styles.placeInfos}>
+                            <Text style={styles.name}>{place.name}</Text>
+                        </View>
+                </View>
+                </TouchableOpacity>
             </View>
-            </TouchableOpacity>
         );
     },
 

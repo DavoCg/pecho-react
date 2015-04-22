@@ -1,7 +1,7 @@
 var React = require('react-native');
 var {StyleSheet} = React;
 
-var mainGreen = '#66CA32';
+var mainGreen = '#2ecc71';
 var mainBackground = "#F1F1F1";
 var border = "#DDDDDD";
 var postFont = '#171717';
