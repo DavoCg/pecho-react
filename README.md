@@ -2,7 +2,7 @@
 
 This app has been created in [react-native](https://github.com/facebook/react-native)
 
-<img src="https://raw.githubusercontent.com/DavoCg/pecho-react/master/preview.png" style="width:250px;">
+<img src="https://raw.githubusercontent.com/DavoCg/pecho-react/master/preview.png" style="width:468px; height:845px">
 
 ### Setup
 
