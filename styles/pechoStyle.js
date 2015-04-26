@@ -1,17 +1,24 @@
 var React = require('react-native');
-var {StyleSheet} = React;
+var {StyleSheet, Image} = React;
 
 var mainGreen = '#2ecc71';
 var mainBackground = "#F1F1F1";
 var border = "#DDDDDD";
 var postFont = '#171717';
 
+var globals = {
+    mainGreen: '#2ecc71',
+    mainBackground: "#F1F1F1",
+    border: "#DDDDDD",
+    postFont: '#171717'
+};
+
 /**
  * Navigation style
  */
 var navigation = StyleSheet.create({
     header: {
-        backgroundColor: mainGreen
+        backgroundColor: globals.mainGreen
     }
 });
 
@@ -26,7 +33,7 @@ var places = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: mainBackground,
+        backgroundColor: globals.mainBackground,
         padding: 10,
         paddingTop: 0
     },
@@ -34,7 +41,7 @@ var places = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        backgroundColor: mainBackground,
+        backgroundColor: globals.mainBackground,
         padding: 10
     },
     name: {
@@ -45,18 +52,18 @@ var places = StyleSheet.create({
         color: "#2c3e50"
     },
     listView: {
-        backgroundColor: mainBackground,
+        backgroundColor: globals.mainBackground,
         fontWeight: 'bold',
         fontFamily: 'Helvetica'
     },
     placeRow: {
         paddingBottom: 30,
-        backgroundColor: mainBackground,
+        backgroundColor: globals.mainBackground,
         flexWrap: 'wrap',
         flexDirection: 'row'
     },
     placeInfos: {
-        backgroundColor: mainBackground,
+        backgroundColor: globals.mainBackground,
         marginLeft: 10
     },
     thumbnail: {
@@ -76,12 +83,12 @@ var home = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: mainBackground,
+        backgroundColor: globals.mainBackground,
         padding: 12,
         paddingTop: 0
     },
     listView: {
-        backgroundColor: mainBackground,
+        backgroundColor: globals.mainBackground,
         fontWeight: 'bold',
         fontFamily: 'Helvetica'
     },
@@ -131,8 +138,8 @@ var home = StyleSheet.create({
         alignItems: 'flex-end'
     },
     postContentContainer: {
-        padding: 6,
         paddingTop: 10,
+        paddingBottom: 6,
         paddingLeft: 0
     },
     postContent: {
@@ -164,12 +171,22 @@ var home = StyleSheet.create({
         width: 1,
         backgroundColor: border
 
+    },
+    imageContainer: {
+        height: 220,
+        flex: 1
+    },
+    image: {
+        resizeMode:Image.resizeMode.ratio,
+        marginTop: 10,
+        flex:1
     }
 
 });
 
+
 /**
- * Home style
+ * Search style
  */
 var search = StyleSheet.create({
     wrapperNavigator: {
@@ -184,7 +201,7 @@ var search = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: mainBackground
+        backgroundColor: globals.mainBackground
     }
 });
 
@@ -204,15 +221,62 @@ var settings = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: mainBackground
+        backgroundColor: globals.mainBackground
+    }
+});
+
+/**
+ * Login Style
+ */
+var login = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: globals.mainBackground
+    },
+    logo:{
+        width: 270,
+        height: 150,
+        marginTop: 200,
+        justifyContent: 'center',
+        alignSelf: 'center'
+    },
+
+    formContainer: {
+        justifyContent: 'center',
+        marginTop: 100,
+        padding: 20
+    },
+    title: {
+        fontSize: 18,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        marginTop: 150,
+        color: '#878787'
+    },
+    buttonText: {
+        fontSize: 18,
+        color: 'white',
+        alignSelf: 'center'
+    },
+    button: {
+        height: 36,
+        backgroundColor: globals.mainGreen,
+        borderColor: globals.mainGreen,
+        borderWidth: 1,
+        borderRadius: 4,
+        marginBottom: 10,
+        alignSelf: 'stretch',
+        justifyContent: 'center'
     }
 });
 
 
 module.exports = {
+    globals: globals,
     places: places,
     home: home,
     settings: settings,
     navigation: navigation,
-    search: search
+    search: search,
+    login: login
 };

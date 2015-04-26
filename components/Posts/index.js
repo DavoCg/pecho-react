@@ -36,9 +36,25 @@ var videoPost = React.createClass({
 });
 
 var singleImagePost = React.createClass({
+
+    _handleClick: function _handleClick(){
+        console.log('clikcel');
+        console.log(arguments);
+    },
+
     render: function render(){
+        var post = this.props.post;
+        var description = post.description || '';
         return (
             <View style={styles.postContentContainer}>
+                <Text style={styles.postContent}>{description}</Text>
+                <View style={styles.imageContainer}>
+                    <Image
+                        source={post.content}
+                        style={styles.image}
+                        onClick={this._handleClick}
+                    />
+                </View>
             </View>
         );
     }

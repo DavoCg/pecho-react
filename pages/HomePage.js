@@ -11,7 +11,7 @@ var styles = require('./../styles/pechoStyle').home;
 var navigationStyle = require('./../styles/pechoStyle').navigation;
 
 
-var posts = require('../posts');
+var posts = require('../utils/posts');
 
 var {
     StyleSheet,

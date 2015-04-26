@@ -12,15 +12,29 @@ var {
     StyleSheet,
     View,
     Text,
-    NavigatorIOS
+    NavigatorIOS,
+    AsyncStorage
     } = React;
 
 var SettingsInitial = React.createClass({
+
+    getInitialState: function getInitialState(){
+        return({
+            username: ''
+        })
+    },
+
+    componentWillMount: function componentWillMount(){
+        AsyncStorage.getItem('username')
+            .then((value) => {this.setState({username: value})})
+            .done()
+    },
+
     render: function render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.description}>
-                    Settings Page
+                    Settings Page of {this.state.username}
                 </Text>
             </View>
         );

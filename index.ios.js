@@ -4,22 +4,43 @@ var React = require('react-native');
 var Home = require('./pages/HomePage.js');
 var Places = require('./pages/PlacesPage.js');
 var Settings = require('./pages/SettingsPage.js');
+var Login = require('./pages/LoginPage.js');
 
 var {
     AppRegistry,
     TabBarIOS,
-    StyleSheet
+    StyleSheet,
+    View,
+    Text,
+    AsyncStorage
     } = React;
 
 var pechoReact = React.createClass({
 
-    getInitialState: function(){
-        return {
+    getInitialState: function getInitialState(){
+        return ({
+            logged: false,
             selectedTab: 'home'
-        };
+        })
+    },
+
+    _onLogged: function _onLogged(nickname){
+        var self = this;
+        AsyncStorage.setItem('username', nickname, function(err){
+            if(err) console.log(err);
+            self.state.logged = true;
+            self.setState(self.state);
+        })
     },
 
     render: function render() {
+        if(!this.state.logged){
+            return(
+                <Login onLogged={this._onLogged}/>
+            );
+        }
+
+
         return (
             <TabBarIOS selectedTab={this.state.selectedTab}>
                 <TabBarIOS.Item
@@ -27,9 +48,8 @@ var pechoReact = React.createClass({
                     title={'Home'}
                     icon={require('image!home-7')}
                     onPress={() => {
-                        this.setState({
-                            selectedTab: 'home'
-                        });
+                        this.state.selectedTab = 'home';
+                        this.setState(this.state);
                     }}>
 
                     <Home/>
@@ -39,9 +59,8 @@ var pechoReact = React.createClass({
                     title={'Places'}
                     icon={require('image!map-pin-7')}
                     onPress={() => {
-                        this.setState({
-                            selectedTab: 'places'
-                        });
+                        this.state.selectedTab = 'places';
+                        this.setState(this.state);
                     }}>
                     <Places/>
                 </TabBarIOS.Item>
@@ -50,9 +69,8 @@ var pechoReact = React.createClass({
                     title={'Settings'}
                     icon={require('image!icon_settings')}
                     onPress={() => {
-                        this.setState({
-                            selectedTab: 'settings'
-                        });
+                        this.state.selectedTab = 'settings';
+                        this.setState(this.state);
                     }}>
                     <Settings/>
                 </TabBarIOS.Item>
