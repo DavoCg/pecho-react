@@ -79,6 +79,10 @@ var header = React.createClass({
         }
     },
 
+    goToDetailsPage: function goToDetailsPage(){
+        this.props.goToDetailsPage();
+    },
+
     render: function render(){
         var post = this.props.post;
 
@@ -91,7 +95,9 @@ var header = React.createClass({
                         style={styles.thumbnail}>
                     </Image>
                     <View>
-                        <Text style={styles.postUser}>{post.username}</Text>
+                        <TouchableOpacity onPress={this.goToDetailsPage}>
+                            <Text style={styles.postUser}>{post.username}</Text>
+                        </TouchableOpacity>
                         <Text style={styles.postMeta}>{post.date}</Text>
                     </View>
                 </View>
@@ -118,22 +124,8 @@ var footer = React.createClass({
             <View style={styles.postFooter}>
                 <TouchableOpacity onPress={this._onPress}>
                     <View style={styles.postAction}>
-                        <Icon name={'like'}/>
-                        <Text style={styles.postActionText}>Like</Text>
-                    </View>
-                </TouchableOpacity>
-                <View style={styles.separator}></View>
-                <TouchableOpacity onPress={this._onPress}>
-                    <View style={styles.postAction}>
-                        <Icon name={'comment'}/>
-                        <Text style={styles.postActionText}>Comment</Text>
-                    </View>
-                </TouchableOpacity>
-                <View style={styles.separator}></View>
-                <TouchableOpacity onPress={this._onPress}>
-                    <View style={styles.postAction}>
                         <Icon name={'heart'}/>
-                        <Text style={[styles.postActionText, {fontWeight: 'bold'}]}>Pecho</Text>
+                        <Text style={[styles.postActionText]}>Pecho</Text>
                     </View>
                 </TouchableOpacity>
             </View>

@@ -8,9 +8,15 @@ var postFont = '#171717';
 
 var globals = {
     mainGreen: '#2ecc71',
-    mainBackground: "#F1F1F1",
-    border: "#DDDDDD",
-    postFont: '#171717'
+    //mainBackground: "#F1F1F1",
+    mainBackground: "#EDEDED",
+    border: "#CCCCCC",
+    postFont: '#171717',
+
+    mainBlue: "#3289C7",
+    otherBlue: "#263644",
+
+    greenTest: '#16a085'
 };
 
 /**
@@ -18,7 +24,7 @@ var globals = {
  */
 var navigation = StyleSheet.create({
     header: {
-        backgroundColor: globals.mainGreen
+        backgroundColor: globals.mainBlue
     }
 });
 
@@ -52,9 +58,7 @@ var places = StyleSheet.create({
         color: "#2c3e50"
     },
     listView: {
-        backgroundColor: globals.mainBackground,
-        fontWeight: 'bold',
-        fontFamily: 'Helvetica'
+        backgroundColor: globals.mainBackground
     },
     placeRow: {
         paddingBottom: 30,
@@ -88,9 +92,7 @@ var home = StyleSheet.create({
         paddingTop: 0
     },
     listView: {
-        backgroundColor: globals.mainBackground,
-        fontWeight: 'bold',
-        fontFamily: 'Helvetica'
+        backgroundColor: globals.mainBackground
     },
     postHeader: {
         flex: 1,
@@ -116,13 +118,13 @@ var home = StyleSheet.create({
         borderColor: border
     },
     postUser: {
-        fontSize: 12,
+        fontSize: 13,
         marginLeft: 5,
         color: postFont,
         fontWeight: '600'
     },
     postMeta: {
-        fontSize: 10,
+        fontSize: 11,
         marginLeft: 6,
         color: '#838383',
         fontWeight: '400'
@@ -154,16 +156,16 @@ var home = StyleSheet.create({
     postAction:{
         flexWrap: 'wrap',
         flexDirection: 'row',
-        height: 25,
+        height: 30,
         backgroundColor: '#FAFAFA',
-        flex: 1/3,
+        flex: 1,
         borderRadius: 1,
         padding: 5,
         alignItems: 'center',
         justifyContent: 'center'
     },
     postActionText:{
-        fontSize: 11,
+        fontSize: 13,
         color: '#6B6B6B'
     },
     separator: {
@@ -199,8 +201,6 @@ var search = StyleSheet.create({
     },
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: globals.mainBackground
     }
 });
@@ -270,6 +270,13 @@ var login = StyleSheet.create({
     }
 });
 
+var details = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: globals.mainBackground
+    }
+});
+
 
 module.exports = {
     globals: globals,
@@ -278,5 +285,6 @@ module.exports = {
     settings: settings,
     navigation: navigation,
     search: search,
-    login: login
+    login: login,
+    details: details
 };

@@ -3,9 +3,10 @@
 var React = require('react-native');
 var Router = require('react-native-router');
 
+var PlaceDetails = require('./DetailsPage');
+
 var BackButton = require('./../components/BackButton');
-var Search = require('./../components/Search');
-var Separator = require('./../components/Separator');
+var Search = require('./../components/Settings');
 
 var styles = require('./../styles/pechoStyle').places;
 var navigationStyle = require('./../styles/pechoStyle').navigation;
@@ -23,18 +24,6 @@ var {
     TouchableOpacity
 } = React;
 
-/**
- * Place details Component
- */
-var PlaceDetails = React.createClass({
-    render: function render() {
-        return (
-            <View style={styles.containerDetails}>
-                <Text style={styles.address}>Distance : {this.props.data.distance} meters</Text>
-            </View>
-        );
-    }
-});
 
 /**
  * PlacesList Component
@@ -68,7 +57,7 @@ var PlacesList = React.createClass({
 
     _onPress: function _onPress(place){
         this.props.toRoute({
-            name: place.name,
+            name: 'Details',
             component: PlaceDetails,
             data: place
         });

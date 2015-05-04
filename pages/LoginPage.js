@@ -44,7 +44,7 @@ var Login = React.createClass({
             setTimeout(function (){
                 self.setState({loading: false});
                 self.props.onLogged(value.nickname)
-            }, 2000);
+            }, 500);
         }
     },
     _checkAvailabily: function _checkAvailabily(form){
@@ -52,7 +52,7 @@ var Login = React.createClass({
     },
 
     render: function render() {
-        var loader = this.state.loading ? 'loading' : '';
+        var loader = this.state.loading ? 'Loading' : '';
         return (
             <View style={styles.container}>
                 <Image source={require('image!logo_placeholder')} style={styles.logo}/>

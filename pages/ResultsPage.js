@@ -11,12 +11,12 @@ var {
     View,
     } = React;
 
-var SettingsPage = React.createClass({
+var ResultsPage = React.createClass({
     render: function render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.description}>
-                    Settings page
+                    Result page
                 </Text>
             </View>
         );
@@ -24,6 +24,6 @@ var SettingsPage = React.createClass({
 });
 
 
-module.exports = SettingsPage;
+module.exports = ResultsPage;
 
 

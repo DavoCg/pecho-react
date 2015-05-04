@@ -3,13 +3,14 @@
 var React = require('react-native');
 var Router = require('react-native-router');
 
+var PlaceDetails = require('./DetailsPage');
+
 var BackButton = require('./../components/BackButton');
-var Search = require('./../components/Search');
+var Settings = require('./../components/Settings');
 var Posts = require('./../components/Posts');
 
 var styles = require('./../styles/pechoStyle').home;
 var navigationStyle = require('./../styles/pechoStyle').navigation;
-
 
 var posts = require('../utils/posts');
 
@@ -44,6 +45,13 @@ var Timeline = React.createClass({
         });
     },
 
+    goToDetailsPage: function goToDetailsPage(){
+        this.props.toRoute({
+            component: PlaceDetails,
+            data: {name: 'Default Name'}
+        });
+    },
+
     renderPost: function renderPost(post){
         /**
          * Posts[post.type] can be enum: {text, video, image , multiImages}
@@ -54,7 +62,7 @@ var Timeline = React.createClass({
         return(
             <View>
                 <View style={styles.post}>
-                    <PostHeader post={post}/>
+                    <PostHeader goToDetailsPage={this.goToDetailsPage} post={post}/>
                     <RenderedPost post={post}/>
                 </View>
                 <PostFooter style={post.postFooter} post={post}/>
@@ -83,17 +91,17 @@ var Timeline = React.createClass({
  */
 var firstRoute = {
     name: 'Timeline',
-    component: Timeline
+    component: Timeline,
+    rightCorner: Settings
 };
 
 var Home = React.createClass({
     render: function render(){
         return (
-            <Router
-                firstRoute={firstRoute}
-                headerStyle={navigationStyle.header}
-                backButtonComponent={BackButton}
-                rightCorner={Search}/>
+                <Router
+                    firstRoute={firstRoute}
+                    headerStyle={navigationStyle.header}
+                    backButtonComponent={BackButton}/>
         );
     }
 });

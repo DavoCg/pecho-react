@@ -9,8 +9,8 @@ var {
 
 var styles = StyleSheet.create({
     icon:{
-        width: 12,
-        height: 12,
+        width: 13,
+        height: 13,
         marginRight: 4
     }
 });
